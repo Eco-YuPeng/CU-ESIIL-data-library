@@ -1,7 +1,9 @@
 
 This unified dataset was combines Ecostress Water Use Efficiency (WUE), SRTM, NLCD (2019), slope, aspect, and GEDI level 2B cover, pavd, and fhd data at a 5m resolution.
+
 Another repo explaines in detials about building a dataset, training and evlauating machine learning models on the data, and running diagnostics. 
 Please refer to https://github.com/j-gams/neon_data_project.
+
 
 Dataset info:
   -  File type	Cloud-Optimized GeoTIFF (.tif)
@@ -20,10 +22,14 @@ text
 iRODS path:  /iplant/home/shared/esiil/Ecostress/
 HTTPS base:  https://data.cyverse.org/dav-anon/iplant/projects/esiil/Ecostress
 
+
 Because the rasters are Cloud-Optimized GeoTIFFs served over HTTPS, GDAL's /vsicurl/ driver can read a bounding-box subset without downloading the whole file. Browse the folder in the CyVerse Data Commons.
+
 
 Access constraints
 No key, no account, no authentication required. The folder is shared read-only with the CyVerse anonymous user, so any HTTPS client can read it. There is no rate-limit guarantee — if a request returns a redirect to unblockme.cyverse.org, your IP has been throttled or blocked; wait and retry or use the unblock page.
+
+
 
 R example
 R
@@ -56,6 +62,8 @@ get_ecostress_wue <- function(url = ECOSTRESS_URL,
 wue <- get_ecostress_wue()
 summary(terra::values(wue))
 print(float(wue.mean()))
+
+
 
 Python example
 python
